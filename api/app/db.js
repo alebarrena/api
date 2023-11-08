@@ -13,3 +13,6 @@ conexion.connect(function(err) {
     }
     console.log('Conectado con el identificador ' + conexion.threadId);
 });
+
+
+module.exports = conexion;

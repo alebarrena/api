@@ -1,4 +1,4 @@
-require('../db.js')
+const conexion = require('../db.js')
 module.exports = {
 search: function (req, res) {
 
