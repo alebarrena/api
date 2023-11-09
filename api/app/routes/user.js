@@ -17,15 +17,12 @@ router.post('/', function(req, res) {
 router.put('/:id', function(req, res) {
   userController.update(req, res)
 })
-router.delete('/:id',[verifyToken], function(req, res) {
+router.delete('/:id', function(req, res) {
   userController.remove(req, res)
 })
 
 router.post('/login', async (req, res) => {
-  const token = jwt.sign({
-      name: user.name,
-      id: user._id
-  }, process.env.TOKEN_SECRET)
+console.log(req.body);
   
   res.header('auth-token', token).json({
       error: null,
