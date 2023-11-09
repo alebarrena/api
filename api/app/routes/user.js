@@ -17,7 +17,7 @@ router.post('/', function(req, res) {
 router.put('/:id', function(req, res) {
   userController.update(req, res)
 })
-router.delete('/:id', function(req, res) {
+router.delete('/:id',[verifyToken], function(req, res) {
   userController.remove(req, res)
 })
 
