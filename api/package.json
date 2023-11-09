@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "nodemon app/app.js"
+  },
   "devDependencies": {
     "eslint": "^8.53.0"
   },
