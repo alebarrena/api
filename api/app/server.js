@@ -18,10 +18,22 @@ app.post('/', function(req, res) {
 app.del('/', function(req, res) {
   res.json({ mensaje: 'Método delete' })  
 })
-
+app.post('/login', async (req, res) => {
+    console.log(req.body);
+    const token = jwt.sign(
+      {
+        username: 'hola',
+        id: '1',
+      },
+      'secreto'
+        );  
+    
+      res.header('auth-token', token).json({
+          error: null,
+          data: {token}
+      })
+    })
 // iniciamos nuestro servidor
-app.listen(port)
-console.log('API escuchando en el puerto ' + port)
 
 // para establecer las distintas rutas, necesitamos instanciar el express router
 var router = express.Router()             
@@ -45,3 +57,8 @@ app.use(bodyParser.json())
 router.post('/',function(req,res) { 
   res.json({mensaje: req.body.nombre})  
 })
+
+
+    
+app.listen(port)
+console.log('API escuchando en el puerto ' + port)
