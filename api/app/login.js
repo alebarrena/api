@@ -10,4 +10,5 @@ router.post('/login', async (req, res) => {
         error: null,
         data: {token}
     })
+    res.send();
 })
