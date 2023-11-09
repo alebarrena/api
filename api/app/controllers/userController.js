@@ -3,32 +3,22 @@ module.exports = {
 search: function (req, res) {
 
     conexion.query('SELECT * FROM user', function (error, results, fields) {
-        if (error)
-            throw error;
-            return res.json(result)
+        return res.json(results)
     });
-
-
 
     
 },
 list: function(req, res) {
-  Cervezas.find(function(err, cervezas){
-    if(err) {
-      return res.status(500).json({
-        message: 'Error obteniendo la cerveza'
-      })
-    }
-    return res.json(cervezas)
-  })
+  conexion.query('SELECT * FROM user', function (error, results, fields) {
+    return res.json(results)
+});
 },
 show: function(req, res) {
   var id = req.params.id
 
-  conexion.query('SELECT * FROM user where id_user'+id, function (error, results, fields) {
-    if (error)
-        throw error;
-        return res.json(result)
+  conexion.query('SELECT * FROM user where id_user='+id, function (error, results, fields) {
+
+        return res.json(results)
   });
 
 

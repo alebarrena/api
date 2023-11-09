@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 var router = require('express').Router()
 var userController = require ('../controllers/userController')
 
@@ -19,4 +20,17 @@ router.put('/:id', function(req, res) {
 router.delete('/:id', function(req, res) {
   userController.remove(req, res)
 })
+
+router.post('/login', async (req, res) => {
+  const token = jwt.sign({
+      name: user.name,
+      id: user._id
+  }, process.env.TOKEN_SECRET)
+  
+  res.header('auth-token', token).json({
+      error: null,
+      data: {token}
+  })
+})
+
 module.exports = router
