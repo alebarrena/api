@@ -14,13 +14,13 @@ login:  async (req,res)=>{
       );  
 
     var clave= await(new Promise((resolve,reject)=>{
-      var sql="SELECT * FROM user where da_email = '"+req.body.da_email+"'"
+      var sql="SELECT * FROM user where da_email = '"+req.body.email+"'"
            console.log(sql)
            conexion.query(sql, function (error, results, fields) {
              resolve(results[0].da_clave)
            });
      }));      
-     if (clave==req.body.da_clave){
+     if (clave==req.body.clave){
         res.header('auth-token', token).json({
             error: null,
             data: {token}
