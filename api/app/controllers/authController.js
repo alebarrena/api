@@ -1,8 +1,9 @@
 const conexion = require('../db.js')
+const jwt = require('jsonwebtoken');
 module.exports = {
 
 
-login: function (req,res){
+login:  async (req,res)=>{
   console.log(req.body);
   const token = jwt.sign(
     {

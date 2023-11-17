@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+
 var router = require('express').Router()
 var authController = require ('../controllers/authController')
 
