@@ -18,6 +18,7 @@ app.post('/', function(req, res) {
 app.del('/', function(req, res) {
   res.json({ mensaje: 'Método delete' })  
 })
+
 app.post('/login', async (req, res) => {
     console.log(req.body);
     const token = jwt.sign(
